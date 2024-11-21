@@ -1,0 +1,41 @@
+<div class="wrapper-product-edit">
+  <span class="title-product">{{ data ? '¡ACTUALIZACIÓN DE PRODUCTO!' : 'REGISTRO DE PRODUCTOS' }}</span>
+  <span class="description-product">
+    {{
+      data ? '¡Hola! Puedes crear este producto para actualizar su información, cambiar el precio, modificar ' +
+        'las imágenes o ajustar las descripciones fácilmente.' : '¡Hola! Agrega un nuevo producto fácilmente llenando la ' +
+        'información. ¡Es rápido y sencillo!'
+    }}
+  </span>
+  <div class="form-and-image">
+    <form class="grid" autocomplete="off" [formGroup]="productForm">
+      <div class="col-12">
+        <div class="form-container">
+          <div class="form-group">
+            <label class="form-label" for="nombre">Nombre del producto</label>
+            <input id="nombre" type="text" formControlName="nombre" placeholder="Ingrese el nombre del producto" class="form-input">
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="form-container">
+          <div class="form-group">
+            <label class="form-label" for="detalle">Descripción del producto</label>
+            <input id="detalle" type="text" formControlName="detalle" placeholder="Ingrese la descripción del producto" class="form-input">
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="form-container">
+          <div class="form-group">
+            <label class="form-label" for="valor">Precio del producto</label>
+            <input id="valor" type="number" formControlName="valor" placeholder="Ingrese el precio del producto" class="form-input">
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-g" (click)="sendDataRegisterProduct()">
+        {{ data ? 'Editar producto' : 'Registrar producto' }}
+      </button>
+    </form>
+  </div>
+</div>

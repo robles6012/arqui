@@ -1,0 +1,115 @@
+@import "main";
+
+.wrapper-menu {
+  width: 260px;
+  transition: all 0.3s ease;
+  height: 100vh;
+  background: #57866d; /* Cambio de color de fondo */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+
+  .top-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .top-menu-init {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      em {
+        font-size: 24px; /* Tamaño de fuente reducido */
+        cursor: pointer;
+        color: #ecf0f1; /* Color de ícono */
+      }
+
+      img {
+        width: 36px; /* Tamaño de ícono reducido */
+        height: 36px;
+        border-radius: 50%; /* Borde redondeado */
+      }
+
+      .btn-navbar {
+        background: transparent;
+        outline: none;
+        border: none;
+        font-size: 20px; /* Tamaño de fuente reducido */
+        cursor: pointer;
+        color: #ecf0f1; /* Color de ícono */
+      }
+    }
+
+    .list-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .item-menu {
+        display: flex;
+        gap: 10px; /* Reducción del espacio entre elementos */
+        align-items: center;
+        text-decoration: none;
+        padding: 10px 14px; /* Ajuste del padding */
+        border-radius: 8px;
+        transition: background 0.3s ease, padding-left 0.3s ease, border-left 0.3s ease;
+
+        em {
+          font-size: 16px; /* Tamaño de fuente reducido */
+          color: #ecf0f1; /* Color del ícono */
+        }
+
+        .item {
+          color: #ecf0f1; /* Color del texto */
+          font-size: 15px; /* Tamaño de fuente reducido */
+          list-style: none;
+          font-weight: normal;
+        }
+
+        &:hover {
+          background: #e8c775; /* Color de fondo al pasar el mouse */
+          padding-left: 10px; /* Ajuste del padding izquierdo */
+          border-left: 6px solid #e74c3c; /* Color del borde izquierdo */
+          font-weight: bold; /* Ajuste del peso de la fuente */
+        }
+      }
+
+      .item-menu-active {
+        background: #e3b43e; /* Color de fondo activo */
+        padding-left: 10px; /* Ajuste del padding izquierdo */
+        border-left: 6px solid #e3b43e; /* Color del borde izquierdo */
+        font-weight: bold; /* Ajuste del peso de la fuente */
+      }
+    }
+  }
+}
+
+.wrapper-menu-close {
+  width: 60px; /* Reducción del ancho */
+  transition: all 0.3s ease;
+
+  .top-menu {
+    .top-menu-init {
+      em {
+        display: none;
+      }
+    }
+
+    .list-menu {
+      .item-menu {
+        .item {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .bottom-menu {
+    span {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+<div class="wrapper-home">
+
+  <div class="header">
+    <img ngSrc="assets/images/login/Espacio.jpg" alt="" height="3828" width="3828">
+    <span class="name-landing" (click)="goTo()"> Arqt Shop</span>
+  </div>
+
+  <div class="product-list">
+    @for (product of products; track $index){
+      <div class="product">
+        <div class="images">
+          <img [src]="product.product_image" alt="imagen de la card"/>
+        </div>
+        <div class="info-product">
+          <span class="title">{{ product.product_name | titlecase }}</span>
+          <p class="price">$ {{ product.product_price  }}</p>
+        </div>
+      </div>
+    }
+  </div>
+</div>
+

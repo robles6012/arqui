@@ -1,0 +1,120 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+
+.wrapper-login {
+  padding: 40px;
+  box-sizing: border-box;
+  width: auto;
+  height: auto;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  width: auto;
+  height: auto;
+}
+
+.left-login {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  width: 600px;
+}
+
+.left-login--header {
+  margin-bottom: 30px;
+}
+
+.image-logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.left-login--body {
+  text-align: center;
+}
+
+.description-login {
+  font-size: 36px;
+  margin-bottom: 30px;
+  color: #333333;
+  font-weight: bold;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 50px;
+}
+
+.form-label {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #555555;
+  font-weight: bold;
+}
+
+.form-input {
+  width: 450px;
+  padding: 16px;
+  font-size: 18px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+
+  &:focus {
+    outline: none;
+    border-color: #58B097;
+  }
+}
+
+.new-user {
+  font-size: 16px; /* Ajusta el tamaño de la fuente de la frase */
+  margin-top: 20px; /* Aumenta el espacio superior */
+}
+
+.new-user span {
+  font-weight: bold;
+  color: #007bff;
+  cursor: pointer;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 16px; /* Aumenta el padding del botón */
+  font-size: 18px; /* Aumenta el tamaño de la fuente del botón */
+  background-color: #58B097;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #40785B;
+  }
+}

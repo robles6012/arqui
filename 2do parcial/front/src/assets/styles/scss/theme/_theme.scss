@@ -1,0 +1,249 @@
+@use "sass:map";
+
+$theme-palette: (
+  material: (
+    50: #DDFBFF,
+    100: #BBF6FF,
+    200: #9AF2FF,
+    300: #78EEFF,
+    400: #56E9FF,
+    500: #34E5FF,
+    600: #12E1FF,
+    700: #00D1F0,
+    800: #00B3CE,
+    900: #0096AC,
+    contrast: (
+      50: rgba(black, 0.87),
+      100: rgba(black, 0.87),
+      200: rgba(black, 0.87),
+      300: white,
+    )
+  ),
+  palete: (
+    rosa: #87e9ff,
+    rosa-pastel: #ffd5f3
+  ),
+  color: (
+    'primary': #00e8c6,
+    'secondary': #fc81d5,
+    'terciary': #fffcfc,
+    'hover': rgba(253, 52, 188, 0.42),
+  ),
+  background: (
+    'primary': #F4F5F7,
+    'secondary': #F0F1F2,
+  ),
+  grays: (
+    50: #F1F1F1,
+    100: #EAEAEA,
+    200: #D5D5D5,
+    300: #C0C0C0,
+    400: #AAAAAA,
+    500: #959595,
+    600: #808080,
+    700: #666666,
+    800: #5C5C5C,
+  ),
+  font: (
+    'title': #384461,
+    'subtitle': #091e42
+  )
+);
+
+@function theme-palette-color($palette, $scale) {
+  @return map.get(get-palette($palette), $scale);
+}
+
+@function get-palette($palette) {
+  @return map.get($theme-palette, $palette);
+}
+
+.wrapper-table {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: theme-palette-color('background', 'primary'); /* Fondo primario */
+  border-radius: 12px;
+  padding: 28px 32px;
+
+  .top-table {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .content-left {
+      width: 40%;
+      display: flex;
+      gap: 16px;
+      flex: 1;
+
+      .search-group {
+        position: relative;
+        flex: 12;
+        background-color: theme-palette-color('background', 'tertiary'); /* Fondo terciario */
+        border-radius: 4px;
+
+        .search-input {
+          width: 100%;
+          position: relative;
+          background: none;
+          font-size: 14px;
+          max-height: 40px;
+          padding: 8px 12px;
+          outline: none;
+          border-radius: 4px;
+          border: 1px solid theme-palette-color('grays', 200); /* Borde gris 200 */
+          height: 40px;
+          cursor: text;
+          color: theme-palette-color('font', 'title'); /* Color del texto de búsqueda */
+
+          &::placeholder {
+            color: theme-palette-color('grays', 400); /* Color del placeholder */
+          }
+        }
+
+        em {
+          position: absolute;
+          right: 20px;
+          top: 12px;
+          font-size: 16px;
+          font-weight: bold;
+          color: theme-palette-color('grays', 600); /* Color del icono de búsqueda */
+        }
+      }
+    }
+
+    .content-right {
+      width: 60%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 10px;
+
+      .actions-group {
+        display: flex;
+        gap: 0.5em;
+      }
+
+      .button-action {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 16px;
+        max-height: 40px;
+        min-height: 40px;
+        font-size: 14px;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+        background-color: theme-palette-color('color', 'primary'); /* Color primario */
+
+        em {
+          padding-left: 8px;
+          font-size: 16px;
+        }
+
+        &:hover {
+          background-color: theme-palette-color('color', 'hover'); /* Color de fondo al pasar el mouse */
+
+          em {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+
+.table-container {
+  overflow-x: auto;
+  max-width: 100%;
+  height: 70vh;
+  background: theme-palette-color('background', 'secondary'); /* Fondo secundario */
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-bottom: 2px solid theme-palette-color('color', 'primary'); /* Borde inferior */
+
+    th, td {
+      padding: 8px;
+      border-left: 2px solid theme-palette-color('color', 'primary'); /* Borde izquierdo */
+      text-align: center;
+      height: 40px;
+      min-height: 40px;
+      max-height: 40px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: theme-palette-color('font', 'title'); /* Color del texto */
+    }
+
+    th {
+      border: 2px solid theme-palette-color('color', 'primary'); /* Borde de cabecera */
+      font-weight: bold;
+      background-color: theme-palette-color('background', 'primary'); /* Fondo de cabecera */
+      height: 50px;
+    }
+
+    tr:nth-child(odd) {
+      background-color: theme-palette-color('background', 'secondary'); /* Fondo de filas impares */
+    }
+
+    tr:nth-child(even) {
+      background-color: theme-palette-color('background', 'primary'); /* Fondo de filas pares */
+    }
+
+    thead {
+      background-color: theme-palette-color('background', 'primary'); /* Fondo de encabezado */
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+
+    tbody {
+      min-height: 100%;
+    }
+  }
+}
+
+.container-buttons {
+  max-width: 400px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-right: 2px solid theme-palette-color('color', 'primary'); /* Borde derecho */
+
+  .btn-actions {
+    width: 32px;
+    height: 32px;
+    background: theme-palette-color('color', 'primary'); /* Color de fondo de botones */
+    outline: none;
+    border: none;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    em {
+      font-size: 18px;
+    }
+  }
+}
+
+.no-data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 430px;
+  background-color: theme-palette-color('background', 'primary'); /* Fondo sin datos */
+  color: theme-palette-color('font', 'subtitle'); /* Color del texto sin datos */
+}

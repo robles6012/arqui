@@ -1,0 +1,198 @@
+@import "../../../../assets/styles/scss/theme/theme";
+
+.wrapper-table {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 28px 32px;
+
+  .top-table {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .content-left {
+      width: 40%;
+      display: flex;
+      gap: 16px;
+      flex: 1;
+
+      .search-group {
+        position: relative;
+        flex: 12;
+        background-color: #efc866;
+        border-radius: 4px;
+
+        .search-input {
+          width: 100%;
+          position: relative;
+          background: none;
+          font-size: 14px;
+          max-height: 40px;
+          padding: 8px 12px;
+          outline: none;
+          border-radius: 4px;
+          border: 1px solid #485c70; /* Borde de búsqueda */
+          height: 40px;
+          color: #ecf0f1; /* Color del texto */
+          caret-color: #ffccdd; /* Color del cursor */
+          &::placeholder {
+            color: #bcc8d3; /* Color del placeholder */
+          }
+        }
+
+        em {
+          position: absolute;
+          right: 20px;
+          top: 12px;
+          font-size: 16px;
+          font-weight: bold;
+          color: #bcc8d3; /* Color del icono de búsqueda */
+        }
+      }
+    }
+
+    .content-right {
+      width: 60%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 10px;
+
+      .actions-group {
+        display: flex;
+        gap: 0.5em;
+      }
+
+      .button-action {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 16px;
+        max-height: 40px;
+        min-height: 40px;
+        font-size: 14px;
+        color: #ffffff; /* Color del texto del botón */
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+        background-color: #f4c142; /* Color de fondo del botón principal */
+
+        em {
+          padding-left: 8px;
+          font-size: 16px;
+          color: #ecf0f1; /* Color del icono del botón */
+        }
+
+        &:hover {
+          background-color: #f4c858; /* Color de fondo del botón al pasar el mouse */
+
+          em {
+            color: #ecf0f1; /* Color del icono del botón al pasar el mouse */
+          }
+        }
+      }
+    }
+  }
+}
+
+.table-container {
+  overflow-x: auto;
+  max-width: 100%;
+  height: 70vh;
+  background: #fafafa; /* Fondo del contenedor de la tabla */
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-bottom: 2px solid #40785B; /* Color del borde inferior de la tabla */
+
+    th, td {
+      padding: 8px;
+      border-left: 2px solid #548e70; /* Color del borde izquierdo de las celdas */
+      text-align: center;
+      height: 40px;
+      min-height: 40px;
+      max-height: 40px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      //color: #000000; /* Color del texto en las celdas */
+    }
+
+    th {
+      border: 2px solid #40785B; /* Borde de las cabeceras */
+      background-color: #57866d; /* Color de fondo de las cabeceras */
+      font-size: 20px;
+      color: #ffffff;
+      font-weight: normal;
+    }
+
+    tr:nth-child(odd) {
+      background-color: rgb(255, 255, 255); /* Color de fondo de filas impares */
+      font-size: 15px;
+      color: #000000;
+    }
+
+    tr:nth-child(even) {
+      background-color: #57866d; /* Color de fondo de filas pares */
+      font-size: 15px;
+      color: #000000;
+    }
+
+    thead {
+      background-color: #ffffff; /* Color de fondo del encabezado */
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      font-size: 15px;
+      color: #ffffff;
+    }
+
+    tbody {
+      min-height: 100%;
+    }
+  }
+}
+
+.container-buttons {
+  max-width: 400px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-right: 2px solid #40785B; /* Borde derecho del contenedor de botones */
+
+  .btn-actions {
+    width: 34px;
+    height: 32px;
+    background: #f4c142; /* Color de fondo de los botones */
+    outline: none;
+    border: none;
+    color: #ffffff; /* Color del texto de los botones */
+    border-radius: 50%;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    em {
+      font-size: 18px;
+    }
+  }
+}
+
+.no-data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 430px;
+  background-color: #94c891; /* Fondo para el mensaje de sin datos */
+  color: #ecf0f1; /* Color del texto para el mensaje de sin datos */
+}

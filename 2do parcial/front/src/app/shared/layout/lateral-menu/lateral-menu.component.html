@@ -1,0 +1,26 @@
+<div class="wrapper-menu" [ngClass]="{'wrapper-menu-close': closeMenu()}">
+  <div class="top-menu">
+    <div class="top-menu-init">
+      <button class="icon-menu btn-navbar" (click)="openLateralMenu()" *ngIf="closeMenu()"></button>
+<!--      <img ngSrc="assets/images/gif%20loading.gif" alt="" height="546" width="518" *ngIf="!closeMenu()">-->
+      <em class="icon-close" (click)="closeLateralMenu()"></em>
+    </div>
+    <ul class="list-menu">
+<!--      <a routerLink="dashboard" routerLinkActive="item-menu-active" class="item-menu">-->
+<!--        <em class="icon-dashboard"> </em>-->
+<!--        <li class="item">Dashboard</li>-->
+<!--      </a>-->
+      <a routerLink="product" routerLinkActive="item-menu-active" class="item-menu">
+<!--        <em class="icon-folder"> </em>-->
+        <em class="icon-trello"> </em>
+        <li class="item">Productos</li>
+      </a>
+    </ul>
+  </div>
+  <div class="bottom-menu">
+    <button class="btn justify-content-start" (click)="logOut()">
+      <em class="icon-log-out"></em>
+      <span>Cerrar sesión </span></button>
+  </div>
+</div>
+

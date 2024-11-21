@@ -1,0 +1,48 @@
+<div class="wrapper-table">
+  <div class="top-table">
+    <div class="content-right">
+      <div class="actions-group">
+        <button class="button-action" (click)="addItem()">
+          <span>{{ buttonActionName }}</span> <em class="icon-plus"></em>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="table-container">
+    <table>
+      <thead>
+      <tr>
+        <th *ngFor="let column of tableColumns">{{ column.name }}</th>
+        <th>{{ rowActionName }}</th> <!-- Columna de opciones -->
+      </tr>
+      </thead>
+      <tbody>
+      <ng-container *ngIf="tableData.length > 0; else noDataTemplate">
+        <tr *ngFor="let element of tableData">
+          <!-- Iterar sobre las columnas para mostrar los datos -->
+          <td *ngFor="let tableColumn of tableColumns">
+            {{ element[tableColumn.key] }}
+          </td>
+
+          <!-- Columna de acciones -->
+          <td class="container-buttons">
+            <button *ngIf="action.edit" (click)="editItem(element);" class="btn-actions">
+              <em class="icon-pencil-f"></em>
+            </button>
+            <button *ngIf="action.delete" (click)="deleteItem(element);" class="btn-actions">
+              <em class="icon-trash"></em>
+            </button>
+          </td>
+        </tr>
+      </ng-container>
+      <ng-template #noDataTemplate>
+        <tr>
+          <td [attr.colspan]="tableColumns.length + 1" class="no-data">
+            <span><em class="icon-info"></em> No hay productos.</span>
+          </td>
+        </tr>
+      </ng-template>
+      </tbody>
+    </table>
+  </div>
+</div>
